@@ -46,7 +46,7 @@ def ds():
     return(render_template("ds.html"))
 
 @app.route("/ds_reply",methods=["GET","POST"])
-def llama_reply():
+def ds_reply():
     q = request.form.get("q")
     # load model
     client = Groq()
