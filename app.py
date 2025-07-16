@@ -129,6 +129,24 @@ def webhook():
         })
     return('ok', 200)
 
+@app.route("/stop_telegram",methods=["GET","POST"])
+def stop_telegram():
+    domain_url = 'https://dsat-ft1-module5.onrender.com'
+    TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+
+
+    # The following line is used to delete the existing webhook URL for the Telegram bot
+    delete_webhook_url = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/deleteWebhook"
+    webhook_response = requests.post(delete_webhook_url, json={"url": domain_url, "drop_pending_updates": True})
+
+    if webhook_response.status_code == 200:
+        # set status message
+        status = "The telegram bot has stopped. Please check with the telegram bot. @my_dsai_bot"
+    else:
+        status = "Failed to start the telegram bot. Please check the logs."
+
+    return(render_template("telegram.html", status=status))
+
 
 if __name__ == "__main__":
     app.run()
