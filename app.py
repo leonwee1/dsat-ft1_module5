@@ -79,6 +79,7 @@ def prediction():
 @app.route("/telegram",methods=["GET","POST"])
 def telegram():
     domain_url = 'https://dsat-ft1-module5.onrender.com'
+    os.environ['GROQ_API_KEY'] = userdata.get('TELEGRAM_BOT_TOKEN')
 
 
     # The following line is used to delete the existing webhook URL for the Telegram bot
