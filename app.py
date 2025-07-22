@@ -4,7 +4,12 @@ from groq import Groq
 import requests
 
 import os
-os.environ['GROQ_API_KEY'] = os.getenv("groq")
+groq_key = os.getenv("groq")
+
+if groq_key is None:
+    raise ValueError("Environment variable 'groq' is not set.")
+else:
+    os.environ['GROQ_API_KEY'] = groq_key
 
 app = Flask(__name__)
 
