@@ -1,14 +1,17 @@
-<head>
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static',
-        filename='styles.css') }}">
-</head>
+<!DOCTYPE html>
+<html>
+<head><title>User Log</title></head>
 <body>
-    <div class="container">
-        <h2>USER LOG : {{r}}</h2>
-        <form action="/main" method="post">
-            <input type="submit" value="Main">
-        </form>
-    </div>
+    <h1>User Log</h1>
+    <table border="1">
+        <tr><th>ID</th><th>Name</th><th>Timestamp</th></tr>
+        {% for row in users %}
+        <tr>
+            <td>{{ row[0] }}</td> <!-- Assuming row[0] = id -->
+            <td>{{ row[1] }}</td> <!-- row[1] = name -->
+            <td>{{ row[2] }}</td> <!-- row[2] = timestamp -->
+        </tr>
+        {% endfor %}
+    </table>
 </body>
+</html>

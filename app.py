@@ -7,7 +7,7 @@ import datetime
 
 ##### Self ####
 conn = sqlite3.connect('user.db')
-conn.execute('CREATE TABLE user (name text, timestamp timestamp)')
+conn.execute('CREATE TABLE IF NOT EXISTS user (name TEXT, timestamp TIMESTAMP)')
 conn.close()
 ##### Self ####
 
