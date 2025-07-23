@@ -40,7 +40,7 @@ def main():
 
     return(render_template("main.html"))
 
-# my own
+## my own
 @app.route("/user_log", methods=["GET","POST"])
 def user_log():
     conn = sqlite3.connect('user.db')
@@ -50,6 +50,16 @@ def user_log():
     conn.close()
     return render_template("user_log.html", users=users)
 
+@app.route("/delete_log", methods=["GET","POST"])
+def user_log():
+    conn = sqlite3.connect('user.db')
+    c = conn.cursor()
+    c.execute('DELETE FROM user',);
+    conn.commit()
+    c.close()
+    conn.close()
+    return render_template("delete_log.html")
+## my own
 
 # llama
 @app.route("/llama",methods=["GET","POST"])

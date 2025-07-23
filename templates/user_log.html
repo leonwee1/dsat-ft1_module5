@@ -1,17 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head><title>User Log</title></head>
+<head>
+    <title>User Log</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .back-button {
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
 <body>
     <h1>User Log</h1>
-    <table border="1">
-        <tr><th>ID</th><th>Name</th><th>Timestamp</th></tr>
+    <table>
+        <tr><th>Name</th><th>Timestamp</th></tr>
         {% for row in users %}
         <tr>
-            <td>{{ row[0] }}</td> <!-- Assuming row[0] = id -->
-            <td>{{ row[1] }}</td> <!-- row[1] = name -->
-            <td>{{ row[2] }}</td> <!-- row[2] = timestamp -->
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
         </tr>
         {% endfor %}
     </table>
+
+    <!-- Back to Main Page Button -->
+    <a href="/main" class="back-button">Back to Main</a>
 </body>
 </html>
