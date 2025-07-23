@@ -20,8 +20,26 @@ def index():
 @app.route("/main",methods=["GET","POST"])
 def main():
     q = request.form.get("q")
-    # db
+    # db - insert
+    conn = sqlite3.connect('user.db')
+    c = conn.cursor()
+    t = datetime.datetime.now()
+    c.execute('INSERT INTO user (name,timestamp) VALUES(?,?)',(q, t))
+    conn.commit()
+    c.close()
+    conn.close()
+
     return(render_template("main.html"))
+
+# my own
+def user_log():
+    conn = sqlite3.connect('user.db')
+    c = conn.cursor()
+    c.execute('SELECT * FROM user')
+    users = c.fetchall()
+    conn.close()
+
+    return render_template("user_log.html", users=users)
 
 
 # llama
