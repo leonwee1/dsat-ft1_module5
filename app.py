@@ -2,6 +2,15 @@ from flask import Flask, render_template, request
 import joblib
 from groq import Groq
 import requests
+import sqlite3
+import datetime
+
+##### Self ####
+conn = sqlite3.connect('user.db')
+conn.execute('CREATE TABLE user (name text, timestamp timestamp)')
+conn.close()
+##### Self ####
+
 
 import os
 groq_key = os.getenv("groq")
