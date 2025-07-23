@@ -41,7 +41,7 @@ def main():
     return(render_template("main.html"))
 
 # my own
-@app.route("/user_log", methods=["GET"])
+@app.route("/user_log", methods=["GET","POST"])
 def user_log():
     conn = sqlite3.connect('user.db')
     c = conn.cursor()
