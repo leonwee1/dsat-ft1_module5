@@ -51,7 +51,7 @@ def user_log():
     return render_template("user_log.html", users=users)
 
 @app.route("/delete_log", methods=["GET","POST"])
-def user_log():
+def delete_log():
     conn = sqlite3.connect('user.db')
     c = conn.cursor()
     c.execute('DELETE FROM user',);
