@@ -41,13 +41,13 @@ def main():
     return(render_template("main.html"))
 
 # my own
+@app.route("/user_log", methods=["GET"])
 def user_log():
     conn = sqlite3.connect('user.db')
     c = conn.cursor()
     c.execute('SELECT * FROM user')
     users = c.fetchall()
     conn.close()
-
     return render_template("user_log.html", users=users)
 
 
