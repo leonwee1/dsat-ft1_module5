@@ -40,6 +40,10 @@ def main():
 
     return(render_template("main.html"))
 
+@app.route('/sepia_image', methods=['GET', 'POST'])
+def sepia():
+    return render_template("sepia_image.html")
+
 ## my own
 @app.route("/user_log", methods=["GET","POST"])
 def user_log():
