@@ -122,3 +122,19 @@ input.green-button[type="submit"] {
 input.green-button[type="submit"]:hover {
     background-color: #218838;
 }
+
+input.teal-button[type="submit"] {
+    background-color: #20c997;
+    color: white;
+}
+input.teal-button[type="submit"]:hover {
+    background-color: #17a589;
+}
+
+input.gold-button[type="submit"] {
+    background-color: #ffc107;
+    color: white;
+}
+input.gold-button[type="submit"]:hover {
+    background-color: #e0a800;
+}
