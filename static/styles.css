@@ -113,3 +113,20 @@ p {
 .telegram-button:hover {
     background-color: #006699;
 }
+
+.green-button {
+    background-color: #28a745; /* Bootstrap-like green */
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 300px;
+}
+
+.green-button:hover {
+    background-color: #218838;
+}
